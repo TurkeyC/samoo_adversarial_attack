@@ -17,13 +17,9 @@ def run_experiment(config_file: str):
     # 设置环境变量指定配置文件
     os.environ["CONFIG_FILE"] = config_file
 
-    # 将src目录添加到Python路径
-    src_path = Path(__file__).parent / "src"
-    sys.path.insert(0, str(src_path))
-
-    # 导入并运行主函数
+    # 导入并运行主函数（现在使用合并的单文件版本）
     try:
-        from main import main
+        from samoo_merged import main
         main()
     except ImportError as e:
         print(f"Error importing main module: {e}")
